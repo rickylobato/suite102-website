@@ -222,14 +222,6 @@ button { font: inherit; }
 .hero-badges li { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.85); font-size: .88rem; font-weight: 500; }
 .hero-badges svg { color: var(--gold-300); flex-shrink: 0; }
 
-.scroll-cue {
-  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-  width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.5); border-radius: 20px;
-  display: flex; justify-content: center; padding-top: 8px; z-index: 2;
-}
-.scroll-cue span { width: 4px; height: 8px; background: var(--gold-300); border-radius: 2px; animation: scrollcue 1.8s infinite; }
-@keyframes scrollcue { 0% { opacity: 1; transform: translateY(0); } 70% { opacity: 0; transform: translateY(10px); } 100% { opacity: 0; } }
-
 /* ---------- Why strip ---------- */
 .why-strip { padding: 72px 0; background: var(--white); }
 .why-grid {
@@ -305,6 +297,10 @@ button { font: inherit; }
 }
 .team-photo img { width: 100%; height: 100%; object-fit: cover; }
 .team-bios { display: flex; flex-direction: column; gap: 32px; }
+.team-stats { display: flex; gap: 36px; }
+.team-stat { display: flex; flex-direction: column; }
+.team-stat strong { font-family: var(--font-display); font-size: 1.8rem; color: var(--teal-900); line-height: 1; }
+.team-stat span { font-size: .74rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-500); margin-top: 4px; }
 .team-bio-block h3 { margin-bottom: .2em; font-size: 1.3rem; }
 .team-role { color: var(--gold-600); font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .7em; }
 .team-bio { font-size: .95rem; margin-bottom: 0; }
@@ -312,6 +308,7 @@ button { font: inherit; }
 /* ---------- Testimonials ---------- */
 .testimonials-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
+  margin-bottom: 36px;
 }
 .testimonial-card {
   background: var(--white);
@@ -321,25 +318,34 @@ button { font: inherit; }
   border: 1px solid rgba(0,0,0,.08);
   position: relative;
 }
+.quote-mark {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  line-height: 1;
+  color: var(--teal-900);
+  opacity: .12;
+  margin-bottom: -.4em;
+}
 .stars { color: var(--gold-500); letter-spacing: 3px; margin-bottom: 14px; font-size: 1.05rem; }
 .testimonial-card p { color: var(--ink-700); margin-bottom: 0; font-size: .95rem; }
 .testimonial-card cite { font-style: normal; font-weight: 600; font-size: .88rem; color: var(--teal-800); }
 .highlight-title { font-size: 1.05rem; margin-bottom: .5em; }
 
 .review-badges {
-  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
-  margin-bottom: 48px;
+  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
 }
 .review-badge {
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  background: var(--teal-900); color: var(--white);
-  padding: 22px 40px; border-radius: var(--radius-md);
-  min-width: 220px;
-  transition: transform .2s ease, box-shadow .2s ease;
+  display: flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--teal-900);
+  padding: 10px 22px; border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(0,0,0,.15);
+  font-size: .88rem;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
 }
-.review-badge:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.review-badge-platform { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; }
-.review-badge-count { font-size: .85rem; color: rgba(255,255,255,.8); text-decoration: underline; text-underline-offset: 3px; margin-top: 2px; }
+.review-badge:hover { background: var(--teal-900); color: var(--white); border-color: var(--teal-900); transform: translateY(-2px); }
+.review-badge-platform { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+.review-badge-count { font-size: .82rem; opacity: .75; }
 
 /* ---------- Visit / Map ---------- */
 .visit-grid {
@@ -479,7 +485,6 @@ button { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
-  .scroll-cue span { animation: none; }
 }
 
 /* ==========================================================================
