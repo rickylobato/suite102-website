@@ -307,9 +307,7 @@ button { font: inherit; }
 .team-bios { display: flex; flex-direction: column; gap: 32px; }
 .team-bio-block h3 { margin-bottom: .2em; font-size: 1.3rem; }
 .team-role { color: var(--gold-600); font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .7em; }
-.team-bio { font-size: .95rem; margin-bottom: .8em; }
-.social-inline { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: .88rem; color: var(--teal-800); }
-.social-inline:hover { text-decoration: underline; }
+.team-bio { font-size: .95rem; margin-bottom: 0; }
 
 /* ---------- Testimonials ---------- */
 .testimonials-grid {
@@ -374,35 +372,21 @@ button { font: inherit; }
 .map-card {
   position: relative;
   height: 100%; min-height: 360px;
-  background: linear-gradient(150deg, var(--teal-800), var(--teal-900));
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 14px; text-align: center; padding: 40px;
+  overflow: hidden;
   transition: transform .3s ease;
 }
 .visit-map:hover .map-card { transform: scale(1.015); }
-.map-card-texture {
+.map-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.map-card-overlay {
   position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: radial-gradient(circle at 50% 50%, black, transparent 75%);
+  background: linear-gradient(0deg, rgba(10,10,10,.85) 0%, rgba(10,10,10,.15) 45%, transparent 70%);
 }
-.map-card-pin {
-  position: relative; z-index: 1;
-  color: var(--white);
-  animation: mapPinBounce 2.4s ease-in-out infinite;
-}
-@keyframes mapPinBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-.map-card-address { position: relative; z-index: 1; color: var(--white); font-weight: 600; font-size: 1.1rem; margin: 0; }
 .map-card-cta {
-  position: relative; z-index: 1;
-  color: rgba(255,255,255,.8); font-size: .9rem; font-weight: 600;
-  text-decoration: underline; text-underline-offset: 3px;
+  position: absolute; left: 28px; right: 28px; bottom: 24px;
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--white); font-size: 1rem; font-weight: 600;
 }
-@media (prefers-reduced-motion: reduce) {
-  .map-card-pin { animation: none; }
-}
+.map-card-cta svg { flex-shrink: 0; }
 
 /* ---------- CTA banner ---------- */
 .cta-banner {
@@ -455,6 +439,33 @@ button { font: inherit; }
   background: var(--teal-800); color: var(--white);
   align-items: center; justify-content: center;
   box-shadow: var(--shadow-lg);
+}
+
+/* ---------- Call-to-book toast ---------- */
+.call-toast {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 150;
+  background: var(--teal-900); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  padding: 14px 50px;
+  transform: translateY(-100%);
+  transition: transform .4s ease;
+  box-shadow: var(--shadow-md);
+}
+.call-toast.show { transform: translateY(0); }
+.call-toast-link { display: inline-flex; align-items: center; gap: 10px; color: var(--white); }
+.call-toast-link span { display: flex; flex-direction: column; line-height: 1.3; text-align: left; }
+.call-toast-link strong { font-size: .95rem; font-weight: 600; }
+.call-toast-link em { font-style: normal; font-size: .85rem; opacity: .8; }
+.call-toast-close {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  background: transparent; border: none; color: rgba(255,255,255,.7);
+  font-size: 1.5rem; line-height: 1; cursor: pointer; padding: 6px 10px;
+}
+.call-toast-close:hover { color: var(--white); }
+@media (max-width: 480px) {
+  .call-toast { padding: 12px 44px 12px 14px; }
+  .call-toast-link strong { font-size: .85rem; }
+  .call-toast-link em { font-size: .78rem; }
 }
 
 /* ---------- Reveal animation ----------

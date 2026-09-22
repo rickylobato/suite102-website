@@ -51,6 +51,23 @@
     sections.forEach(function (s) { navObserver.observe(s); });
   }
 
+  // Call-to-book toast: shows briefly on arrival to prompt a call
+  var toast = document.getElementById('call-toast');
+  var toastClose = document.getElementById('call-toast-close');
+  if (toast) {
+    var hideToast = function () { toast.classList.remove('show'); };
+    var showTimer = setTimeout(function () {
+      toast.classList.add('show');
+      setTimeout(hideToast, 7000);
+    }, 800);
+    if (toastClose) {
+      toastClose.addEventListener('click', function () {
+        clearTimeout(showTimer);
+        hideToast();
+      });
+    }
+  }
+
   // Reveal-on-scroll animation
   var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   if (revealEls.length) {
