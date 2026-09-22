@@ -324,8 +324,24 @@ button { font: inherit; }
   position: relative;
 }
 .stars { color: var(--gold-500); letter-spacing: 3px; margin-bottom: 14px; font-size: 1.05rem; }
-.testimonial-card p { font-style: italic; color: var(--ink-700); margin-bottom: 1.2em; }
+.testimonial-card p { color: var(--ink-700); margin-bottom: 0; font-size: .95rem; }
 .testimonial-card cite { font-style: normal; font-weight: 600; font-size: .88rem; color: var(--teal-800); }
+.highlight-title { font-size: 1.05rem; margin-bottom: .5em; }
+
+.review-badges {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.review-badge {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  background: var(--teal-900); color: var(--white);
+  padding: 22px 40px; border-radius: var(--radius-md);
+  min-width: 220px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.review-badge:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.review-badge-platform { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; }
+.review-badge-count { font-size: .85rem; color: rgba(255,255,255,.8); text-decoration: underline; text-underline-offset: 3px; margin-top: 2px; }
 
 /* ---------- Visit / Map ---------- */
 .visit-grid {
