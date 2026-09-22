@@ -298,6 +298,15 @@ button { font: inherit; }
 .team-bio { font-size: .95rem; margin-bottom: 0; }
 
 /* ---------- Testimonials ---------- */
+.rating-hero {
+  display: flex; align-items: center; justify-content: center; gap: 18px;
+  margin-bottom: 44px;
+}
+.rating-score { font-family: var(--font-display); font-size: 3.4rem; font-weight: 700; color: var(--teal-900); line-height: 1; }
+.rating-hero-detail { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.rating-hero-detail .stars { margin-bottom: 0; font-size: 1.3rem; letter-spacing: 4px; }
+.rating-hero-count { font-size: .92rem; color: var(--ink-500); font-weight: 500; }
+
 .testimonials-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
   margin-bottom: 36px;
