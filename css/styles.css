@@ -151,14 +151,6 @@ button { font: inherit; }
 .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
 
 .header-actions { display: flex; align-items: center; gap: 14px; }
-.phone-pill {
-  display: inline-flex; align-items: center; gap: 8px;
-  color: var(--teal-800); font-weight: 600; font-size: .92rem;
-  padding: 8px 14px; border-radius: var(--radius-pill);
-  border: 1.5px solid rgba(0,0,0,.18);
-  transition: background .2s ease, border-color .2s ease;
-}
-.phone-pill:hover { background: var(--teal-100); border-color: var(--teal-700); }
 
 .nav-toggle {
   display: none; flex-direction: column; justify-content: center; gap: 5px;
@@ -447,32 +439,46 @@ button { font: inherit; }
   box-shadow: var(--shadow-lg);
 }
 
-/* ---------- Call-to-book toast ---------- */
-.call-toast {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 150;
-  background: var(--teal-900); color: var(--white);
+/* ---------- Call-to-book modal ---------- */
+.call-modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(10,10,10,.6);
   display: flex; align-items: center; justify-content: center;
-  padding: 14px 50px;
-  transform: translateY(-100%);
-  transition: transform .4s ease;
-  box-shadow: var(--shadow-md);
+  padding: 20px;
+  opacity: 0; visibility: hidden;
+  transition: opacity .3s ease, visibility 0s linear .3s;
 }
-.call-toast.show { transform: translateY(0); }
-.call-toast-link { display: inline-flex; align-items: center; gap: 10px; color: var(--white); }
-.call-toast-link span { display: flex; flex-direction: column; line-height: 1.3; text-align: left; }
-.call-toast-link strong { font-size: .95rem; font-weight: 600; }
-.call-toast-link em { font-style: normal; font-size: .85rem; opacity: .8; }
-.call-toast-close {
-  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
-  background: transparent; border: none; color: rgba(255,255,255,.7);
-  font-size: 1.5rem; line-height: 1; cursor: pointer; padding: 6px 10px;
+.call-modal-overlay.show { opacity: 1; visibility: visible; transition: opacity .3s ease; }
+.call-modal {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 44px 36px 36px;
+  max-width: 380px; width: 100%;
+  text-align: center;
+  transform: scale(.94) translateY(8px);
+  transition: transform .3s ease;
 }
-.call-toast-close:hover { color: var(--white); }
-@media (max-width: 480px) {
-  .call-toast { padding: 12px 44px 12px 14px; }
-  .call-toast-link strong { font-size: .85rem; }
-  .call-toast-link em { font-size: .78rem; }
+.call-modal-overlay.show .call-modal { transform: scale(1) translateY(0); }
+.call-modal-close {
+  position: absolute; right: 14px; top: 14px;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: transparent; border: none; color: var(--ink-500);
+  font-size: 1.5rem; line-height: 1; cursor: pointer;
 }
+.call-modal-close:hover { background: var(--cream-100); color: var(--ink-900); }
+.call-modal-logo { margin: 0 auto 14px; }
+.call-modal h3 { font-size: 1.3rem; margin-bottom: 20px; }
+.call-modal-hours {
+  display: flex; flex-direction: column; gap: 8px;
+  margin: 0 0 26px; padding: 16px; border-radius: var(--radius-sm);
+  background: var(--cream-100);
+}
+.call-modal-hours li { display: flex; justify-content: space-between; font-size: .92rem; color: var(--ink-700); }
+.call-modal-hours li span:first-child { font-weight: 600; color: var(--ink-900); }
+.call-modal-hours li.closed span:last-child { color: var(--ink-500); }
+.call-modal-btn { width: 100%; }
 
 /* ---------- Reveal animation ----------
    Progressive enhancement: content is visible by default (in case JS fails
@@ -514,7 +520,6 @@ button { font: inherit; }
   .main-nav.open { transform: translateX(0); }
   .main-nav ul { flex-direction: column; gap: 0; padding: 0 24px; }
   .main-nav .nav-link { display: block; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,.08); font-size: 1.05rem; }
-  .header-actions .phone-pill { display: none; }
   .nav-toggle { display: flex; }
   .mobile-call-fab { display: flex; }
   .hero { min-height: auto; padding: calc(var(--header-h) + 50px) 0 90px; }

@@ -79,11 +79,10 @@
     </nav>
 
     <div class="header-actions">
-      <a href="tel:+15613186113" class="phone-pill" aria-label="Call Suite 102 Salon and Spa">
+      <a href="tel:+15613186113" class="btn btn-primary btn-sm" aria-label="Call Suite 102 Salon and Spa">
         <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-        <span>561.318.6113</span>
+        Call Now
       </a>
-      <a href="tel:+15613186113" class="btn btn-primary btn-sm">Call Now</a>
     </div>
 
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
@@ -230,7 +229,7 @@
         <div class="team-bios">
           <div class="team-stats">
             <div class="team-stat"><strong>1992</strong><span>Married</span></div>
-            <div class="team-stat"><strong>2015</strong><span>Suite 102 Founded</span></div>
+            <div class="team-stat"><strong>2014</strong><span>Suite 102 Founded</span></div>
           </div>
           <div class="team-bio-block">
             <h3>Carmel Lobato</h3>
@@ -277,11 +276,11 @@
       <div class="review-badges reveal">
         <a href="https://www.yelp.com/biz/suite-102-salon-and-spa-boynton-beach" target="_blank" rel="noopener" class="review-badge">
           <span class="review-badge-platform">Yelp</span>
-          <span class="review-badge-count">47 Reviews</span>
+          <span class="review-badge-count">Reviews</span>
         </a>
         <a href="https://www.google.com/search?q=Suite+102+Salon+%26+Spa+3960+Hypoluxo+Rd+Boynton+Beach+FL+reviews" target="_blank" rel="noopener" class="review-badge">
           <span class="review-badge-platform">Google</span>
-          <span class="review-badge-count">Read Reviews</span>
+          <span class="review-badge-count">Reviews</span>
         </a>
       </div>
     </div>
@@ -315,7 +314,7 @@
             <span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v5.4l4.2 2.5-.8 1.3-5-3V7h1.6z"/></svg></span>
             <div>
               <h3>Hours</h3>
-              <p>Tue&ndash;Fri: 9am&ndash;7pm<br>Sat: 9am&ndash;3pm<br>Sun &amp; Mon: Closed</p>
+              <p>Wed&ndash;Sat: 9:30am&ndash;9:00pm<br>Sun, Mon &amp; Tue: Closed</p>
             </div>
           </div>
           <a href="https://www.google.com/maps/dir/?api=1&destination=3960+Hypoluxo+Rd,+Boynton+Beach,+FL+33436" target="_blank" rel="noopener" class="btn btn-primary btn-lg visit-btn">Get Directions</a>
@@ -396,15 +395,20 @@
   <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
 </a>
 
-<div class="call-toast" id="call-toast" role="dialog" aria-label="Call to book">
-  <a href="tel:+15613186113" class="call-toast-link">
-    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-    <span>
-      <strong>Call to Book Your Appointment</strong>
-      <em>561.318.6113</em>
-    </span>
-  </a>
-  <button class="call-toast-close" id="call-toast-close" aria-label="Dismiss">&times;</button>
+<div class="call-modal-overlay" id="call-modal" role="dialog" aria-modal="true" aria-label="Call to book an appointment">
+  <div class="call-modal">
+    <button class="call-modal-close" id="call-modal-close" aria-label="Close">&times;</button>
+    <img class="call-modal-logo" src="images/logo-icon-dark.png" alt="" width="52" height="43" aria-hidden="true">
+    <h3>Call to Book Your Appointment</h3>
+    <ul class="call-modal-hours">
+      <li><span>Wed &ndash; Sat</span><span>9:30am &ndash; 9:00pm</span></li>
+      <li class="closed"><span>Sun, Mon, Tue</span><span>Closed</span></li>
+    </ul>
+    <a href="tel:+15613186113" class="btn btn-primary btn-lg call-modal-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      Call 561.318.6113
+    </a>
+  </div>
 </div>
 
 <script src="js/main.js"></script>

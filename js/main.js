@@ -51,21 +51,27 @@
     sections.forEach(function (s) { navObserver.observe(s); });
   }
 
-  // Call-to-book toast: shows briefly on arrival to prompt a call
-  var toast = document.getElementById('call-toast');
-  var toastClose = document.getElementById('call-toast-close');
-  if (toast) {
-    var hideToast = function () { toast.classList.remove('show'); };
-    var showTimer = setTimeout(function () {
-      toast.classList.add('show');
-      setTimeout(hideToast, 7000);
-    }, 800);
-    if (toastClose) {
-      toastClose.addEventListener('click', function () {
-        clearTimeout(showTimer);
-        hideToast();
-      });
-    }
+  // Call-to-book modal: shows on arrival to prompt a call
+  var modal = document.getElementById('call-modal');
+  var modalClose = document.getElementById('call-modal-close');
+  if (modal) {
+    var closeModal = function () {
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+    };
+    var openModal = function () {
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    };
+    setTimeout(openModal, 800);
+
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+    });
   }
 
   // Reveal-on-scroll animation
