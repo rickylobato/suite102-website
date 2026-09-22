@@ -469,7 +469,11 @@ button { font: inherit; }
 }
 .call-modal-close:hover { background: var(--cream-100); color: var(--ink-900); }
 .call-modal-logo { margin: 0 auto 14px; }
-.call-modal h3 { font-size: 1.3rem; margin-bottom: 20px; }
+.call-modal h3 { font-size: 1.3rem; margin-bottom: 8px; }
+.call-modal-note {
+  font-size: .88rem; font-weight: 600; color: var(--teal-900);
+  margin: 0 0 20px;
+}
 .call-modal-hours {
   display: flex; flex-direction: column; gap: 8px;
   margin: 0 0 26px; padding: 16px; border-radius: var(--radius-sm);
@@ -478,6 +482,11 @@ button { font: inherit; }
 .call-modal-hours li { display: flex; justify-content: space-between; font-size: .92rem; color: var(--ink-700); }
 .call-modal-hours li span:first-child { font-weight: 600; color: var(--ink-900); }
 .call-modal-hours li.closed span:last-child { color: var(--ink-500); }
+.call-modal-hours li.section-label {
+  justify-content: flex-start;
+  font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--ink-500); margin-bottom: 2px;
+}
 .call-modal-btn { width: 100%; }
 
 /* ---------- Reveal animation ----------
