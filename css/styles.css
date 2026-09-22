@@ -489,6 +489,36 @@ button { font: inherit; }
 }
 .call-modal-btn { width: 100%; }
 
+/* ---------- FAQ ---------- */
+.container-narrow { max-width: 760px; }
+.faq-list { display: flex; flex-direction: column; gap: 14px; }
+.faq-item {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: var(--radius-md);
+  padding: 22px 26px;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--teal-900);
+  list-style: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink-500);
+  transition: transform .2s ease;
+}
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item p { margin: 14px 0 0; color: var(--ink-700); font-size: .95rem; }
+.faq-item p a { color: var(--teal-800); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
 /* ---------- Reveal animation ----------
    Progressive enhancement: content is visible by default (in case JS fails
    to load). Only once the "js" class is confirmed on <html> (see inline
