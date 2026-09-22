@@ -365,12 +365,44 @@ button { font: inherit; }
 .visit-info a { color: var(--white); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,.4); }
 .visit-btn { margin-top: 8px; align-self: flex-start; }
 .visit-map {
+  display: block;
   border-radius: var(--radius-lg);
   overflow: hidden;
   min-height: 360px;
   box-shadow: var(--shadow-md);
 }
-.visit-map iframe { width: 100%; height: 100%; min-height: 360px; }
+.map-card {
+  position: relative;
+  height: 100%; min-height: 360px;
+  background: linear-gradient(150deg, var(--teal-800), var(--teal-900));
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; text-align: center; padding: 40px;
+  transition: transform .3s ease;
+}
+.visit-map:hover .map-card { transform: scale(1.015); }
+.map-card-texture {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 75%);
+}
+.map-card-pin {
+  position: relative; z-index: 1;
+  color: var(--white);
+  animation: mapPinBounce 2.4s ease-in-out infinite;
+}
+@keyframes mapPinBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.map-card-address { position: relative; z-index: 1; color: var(--white); font-weight: 600; font-size: 1.1rem; margin: 0; }
+.map-card-cta {
+  position: relative; z-index: 1;
+  color: rgba(255,255,255,.8); font-size: .9rem; font-weight: 600;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-card-pin { animation: none; }
+}
 
 /* ---------- CTA banner ---------- */
 .cta-banner {
